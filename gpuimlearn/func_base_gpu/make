@@ -1,0 +1,1 @@
+nvcc -o XX.so -shared -Xcompiler -fPIC XX.cu
