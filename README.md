@@ -9,10 +9,10 @@ List only the lowest. <br>
 * GCC/G++ : 6.5/6.5 
 
 ## Install
+before this, please install thundergbm and thundersvm. <br>
+for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thundergbm), <br>
+                      and [ThunderSVM](https://github.com/Xtra-Computing/thundersvm). <br>
 ```
-# before this, please install thundergbm and thundersvm.
-# for more information, see https://github.com/Xtra-Computing/thundergbm \
-#                       and https://github.com/Xtra-Computing/thundersvm.
 git clone https://github.com/inbliz/gpuimlearn.git
 cd gpuimlearn
 python3 setup.py install
