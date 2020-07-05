@@ -10,7 +10,7 @@ List only the lowest. <br>
 
 ## Install
 before this, please install thundergbm and thundersvm. <br>
-for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thundergbm), <br>
+for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thundergbm), 
                       and [ThunderSVM](https://github.com/Xtra-Computing/thundersvm). <br>
 ```
 git clone https://github.com/inbliz/gpuimlearn.git
