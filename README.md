@@ -2,7 +2,7 @@
 a software for imbalance data classification based on GPU. <br>
 
 ## Environment
-**List only the lowest. **
+**List only the lowest. ** <br>
 * OS      : Linux 
 * Python  : 3 
 * CUDA    : 9 
