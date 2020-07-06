@@ -1,5 +1,6 @@
 # GPU-imLearn
-a software for imbalance data classification based on GPU. <br>
+A software for imbalance data classification based on GPU. <br>
+It can provide high speed when you classify the multi-class imbalanced data. <br>
 
 ## Document Description
 * codes : the code work.
