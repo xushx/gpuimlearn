@@ -8,11 +8,11 @@ a software for imbalance data classification based on GPU. <br>
 
 ## Software Contents
 There are 3 main parts in this work, you can see them in the codes folder. <br>
-* cpu 
+* cpu <br>
 6 multi-class imbalanced classification algorithms based on CPU
-* gpuimlearn <recommend>
+* gpuimlearn <recommend> <br>
 6 multi-class imbalanced classification algorithms based on GPU, base classifications are implemented by CUDA.
-* pytorch 
+* pytorch <br>
 6 multi-class imbalanced classification algorithms based on GPU, base classifications are implemented by Pytorch.
 
 the 6 multi-class imbalanced classification algorithms are :
