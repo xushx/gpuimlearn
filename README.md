@@ -43,7 +43,7 @@ for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thunder
 ## Usage
 They are easy to use, and you can run them quickly. <br>
   
-1. FocalBoost Usage 
+1. FocalBoost Usage <br>
 As other classifiers, FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
@@ -62,7 +62,7 @@ After being fitted, the model can then be used to predict new values:
 array([1, 2, 3])
 ```
   
-2. DECOC Usage 
+2. DECOC Usage <br>
 As other classifiers, DECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
@@ -81,7 +81,7 @@ After being fitted, the model can then be used to predict new values:
 array([1, 2, 3])
 ```
   
-3. DOVO Usage 
+3. DOVO Usage <br>
 As other classifiers, DOVO take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
@@ -100,7 +100,7 @@ After being fitted, the model can then be used to predict new values:
 array([1, 2, 3])
 ```
   
-4. AdaBoost.M1 Usage 
+4. AdaBoost.M1 Usage <br>
 As other classifiers, AdaBoostM1 take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
@@ -119,7 +119,7 @@ After being fitted, the model can then be used to predict new values:
 array([1, 2, 3])
 ```
   
-5. SAMME Usage 
+5. SAMME Usage <br>
 As other classifiers, SAMME take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
@@ -138,7 +138,7 @@ After being fitted, the model can then be used to predict new values:
 array([1, 2, 3])
 ```
   
-6. imECOC Usage 
+6. imECOC Usage <br>
 As other classifiers, imECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
