@@ -36,7 +36,7 @@ for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thunder
                       and [ThunderSVM](https://github.com/Xtra-Computing/thundersvm). <br>
 ```
 >>> git clone https://github.com/inbliz/gpuimlearn.git
->>> cd codes/gpuimlearn
+>>> cd gpuimlearn
 >>> python3 setup.py install
 ```
 
