@@ -6,7 +6,7 @@
 import numpy as np
 import time
 
-from thundergbm import TGBMClassifier
+from thundersvm import SVC
 
 
 class FocalBoost:
@@ -28,12 +28,12 @@ class FocalBoost:
 
         one_hot_pre = np.zeros((nrows, ncls))
         for i in range(nrows):
-            col = y_pre[i] - 1
+            col = int(y_pre[i] - 1)
             one_hot_pre[i][col] = 1
         logit = self.softmax(one_hot_pre)
         one_hot_key = np.zeros((nrows, ncls))
         for i in range(nrows):
-            col = y[i]-1
+            col = int(y[i]-1)
             one_hot_key[i][col] = 1
 
         pt = (one_hot_key * logit).sum(1)
@@ -43,7 +43,7 @@ class FocalBoost:
         return loss.mean()
 
     def create_classifer(self, index=0):
-        return TGBMClassifier(n_trees = 10)
+        return SVC()
 
     def resample(self, weights):
         t = np.cumsum(weights)
@@ -67,7 +67,7 @@ class FocalBoost:
                 resampled_entries_y.append(y[random_indices[i]])
 
             weak_classifier = self.create_classifer()
-            weak_classifier.fit(resampled_entries_x, resampled_entries_y, sample_weight=weights)
+            weak_classifier.fit(resampled_entries_x, resampled_entries_y)
 
             # training and calculate the rate of error
             classifications = weak_classifier.predict(x)
