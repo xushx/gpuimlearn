@@ -2,6 +2,11 @@
 A software for imbalance data classification based on GPU. <br>
 It can provide high speed when you classify the multi-class imbalanced data. <br>
 
+## Copyright
+This work was designed by Prof. Chongsheng Zhang (chongsheng.zhang@yahoo.com), and implemented by Mr. Shixin Xu (xusxmail@qq.com), who is a master student of Henan University under the supervision of Prof. Zhang. <br>
+
+This software is free for academic use only. For commercial companies, they should first ask the permission from both authors above. <br>
+
 ## Document Description
 * codes : the code work.
 * data : 2 sample datasets, which are '.mat' format.
