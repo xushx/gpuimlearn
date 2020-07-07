@@ -9,11 +9,11 @@ import time
 from sklearn.ensemble import RandomForestClassifier
 
 
-class AdaBoostM1:
+class FocalBoost:
 
     def __init__(self):
         self.clf = None
-        print('AdaBoostM1.AdaBoostM1')
+        print('FocalBoost.FocalBoost')
 
     def softmax(self, x):
         """softmax"""
@@ -129,3 +129,5 @@ class AdaBoostM1:
     def predict(self, x_test):
         pre_label = (self.predicted(x_test)).reshape(-1, 1)
         pre_label = np.squeeze(pre_label)
+
+        return pre_label
