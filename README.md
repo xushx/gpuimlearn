@@ -16,7 +16,7 @@ This software is free for academic use only. For commercial companies, they shou
 There are 3 main parts in this work, you can see them in the codes folder. <br>
 * cpu <br>
 6 multi-class imbalanced classification algorithms based on CPU
-* gpuimlearn <recommend> <br>
+* gpuimlearn -recommend- <br>
 6 multi-class imbalanced classification algorithms based on GPU, base classifications are implemented by CUDA.
 * pytorch <br>
 6 multi-class imbalanced classification algorithms based on GPU, base classifications are implemented by Pytorch.
