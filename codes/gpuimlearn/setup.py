@@ -1,3 +1,9 @@
+# @Reference
+# @Time : ${DATE} ${TIME}
+# @Author : henu_bigdata
+# @File : AdaBoostM1.py
+# @Description : a classifier for imbalance data based on GPU
+
 import setuptools
 
 # 第三方依赖

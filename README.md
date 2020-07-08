@@ -8,9 +8,9 @@ This work was designed by Prof. Chongsheng Zhang (chongsheng.zhang@yahoo.com), a
 This software is free for academic use only. For commercial companies, they should first ask the permission from both authors above. <br>
 
 ## Document Description
-* codes : the code work.
+* codes : the code work. there is a sample supported.
 * data : 2 sample datasets, which are '.mat' format.
-* docs : some related papers.
+* docs : some related papers, and user manual.
 
 ## Software Contents
 There are 3 main parts in this work, you can see them in the codes folder. <br>
@@ -47,10 +47,12 @@ for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thunder
 ```
 
 ## Usage
+
 They are easy to use, and you can run them quickly. <br>
+also, there is a sample in the codes folder, you can run it with the data in data folder.<br>
   
 1. FocalBoost Usage <br>
-As other classifiers, FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
 # FocalBoost
@@ -69,7 +71,7 @@ array([1, 2, 3])
 ```
   
 2. DECOC Usage <br>
-As other classifiers, DECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+DECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
 # DECOC
@@ -88,7 +90,7 @@ array([1, 2, 3])
 ```
   
 3. DOVO Usage <br>
-As other classifiers, DOVO take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+DOVO take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
 # DOVO
@@ -107,7 +109,7 @@ array([1, 2, 3])
 ```
   
 4. AdaBoost.M1 Usage <br>
-As other classifiers, AdaBoostM1 take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+AdaBoostM1 take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
 # AdaBoostM1
@@ -126,7 +128,7 @@ array([1, 2, 3])
 ```
   
 5. SAMME Usage <br>
-As other classifiers, SAMME take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+SAMME take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
 # SAMME
@@ -145,7 +147,7 @@ array([1, 2, 3])
 ```
   
 6. imECOC Usage <br>
-As other classifiers, imECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+imECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
 # imECOC
