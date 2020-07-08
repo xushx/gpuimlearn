@@ -6,6 +6,10 @@ import numpy as np
 
 from gpuimlearn import FocalBoost
 
+def norm(matrix):
+    ran = np.max(matrix) - np.min(matrix)
+    return ((matrix - np.min(matrix))/ran)
+
 def main():
     # 当前工作目录
     dir_path = os.getcwd()
@@ -13,7 +17,7 @@ def main():
     if not os.path.exists(result_path):
         os.mkdir(result_path)
     # 获取data目录下的mat数据集文件
-    for data_path in glob.glob(r'%s\data\*.mat' % dir_path):
+    for data_path in glob.glob(r'%s/data/*.mat' % dir_path):
         fname = os.path.splitext(os.path.basename(data_path))[0]
         load_data = sio.loadmat(data_path)['data'][0]
 
@@ -26,9 +30,10 @@ def main():
             x_test = load_data[i]['test']
             y_train = load_data[i]['trainlabel']
             y_test = load_data[i]['testlabel']
+            x_train, x_test = norm(x_train), norm(x_test)
 
             clf = FocalBoost.FocalBoost()
-            clf.fit(x_train, y_train)
+            clf.fit(x_train, y_train.ravel())
             pre = clf.predict(x_test)
             print(pre)
 

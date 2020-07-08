@@ -49,7 +49,7 @@ for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thunder
 ## Usage
 
 They are easy to use, and you can run them quickly. <br>
-also, there is a sample in the codes folder, you can run it with the data in data folder.<br>
+also, there is a sample in the codes folder, you can run it with the data in data folder. If this, test_sample.py and data folder shoule be in the same package.<br>
   
 1. FocalBoost Usage <br>
 FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
