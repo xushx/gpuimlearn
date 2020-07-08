@@ -3,9 +3,8 @@ A software for imbalance data classification based on GPU. <br>
 It can provide high speed when you classify the multi-class imbalanced data. <br>
 
 ## Copyright
-This work was designed by Prof. Chongsheng Zhang (chongsheng.zhang@yahoo.com), and implemented by Mr. Shixin Xu (xusxmail@qq.com), who is a master student of Henan University under the supervision of Prof. Zhang. <br>
 
-This software is free for academic use only. For commercial companies, they should first ask the permission from both authors above. <br>
+This software is free for academic use only. <br>
 
 ## Document Description
 * codes : the code work. there is a sample supported.
@@ -42,7 +41,7 @@ for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thunder
                       and [ThunderSVM](https://github.com/Xtra-Computing/thundersvm). <br>
 ```
 >>> git clone https://github.com/inbliz/gpuimlearn.git
->>> cd gpuimlearn
+>>> cd gpuimlearn/CUDA-imLearn/gpuimlearn
 >>> python3 setup.py install
 ```
 
