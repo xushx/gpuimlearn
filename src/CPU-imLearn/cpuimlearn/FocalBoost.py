@@ -1,48 +1,69 @@
-# @Reference
-# @Time : ${DATE} ${TIME}
-# @File : FocalBoost.py
-# @Description : a classifier for imbalance data based on GPU
-import numpy as np
-import time
+# Reference :
+#
+# Name : FocalBoost
+#
+# Purpose : FocalBoost is an classification algorithm for multi-imbalanced data, which applies the focal loss in Boosting method.
+#
+# This file is a part of GPU-imLearn software, A software for imbalance data classification based on GPU.
+# 
+# GPU-imLearn software is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of \n
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with this program.
+# If not, see <http://www.gnu.org/licenses/>.
 
+import numpy as np
+
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 
 class FocalBoost:
 
     def __init__(self):
+
         self.clf = None
         print('FocalBoost.FocalBoost')
 
     def softmax(self, x):
         """softmax"""
-        xx = x - np.max(x)
-        e_x = np.exp(xx)
-        s = e_x / e_x.sum()
+        tmp = np.max(x, axis=1)
+        x -= tmp.reshape((x.shape[0], 1))
+        x = np.exp(x)
+        tmp = np.sum(x, axis=1)
+        x /= tmp.reshape((x.shape[0], 1))
 
-        return s
+        return x
 
-    # 
-    def focal(self, nrows, ncls, y_pre, y):
+    # focal loss in this work.
+    # cls : 1 to n
+    def focal(self, nrows, ncls, pre, y):
 
-        one_hot_pre = np.zeros((nrows, ncls))
-        for i in range(nrows):
-            col = y_pre[i] - 1
-            one_hot_pre[i][col] = 1
-        logit = self.softmax(one_hot_pre)
+        isim = np.zeros(nrows)
+        for x in self.imcls:
+            isim[y == x] = 1
+
+        logit = self.softmax(pre)
         one_hot_key = np.zeros((nrows, ncls))
         for i in range(nrows):
-            col = y[i]-1
+            col = int(y[i]-1)
             one_hot_key[i][col] = 1
 
         pt = (one_hot_key * logit).sum(1)
         logpt = np.log(pt + 0.000001)
-        loss = -1 * np.power((1-pt), 2) * logpt
+        logpt2 = np.log(1-pt)
+
+        loss1 = -0.25 * np.power((1-(pt*isim)), 2) * logpt
+        loss0 = -1 * np.power((pt*(1-isim)), 2) * logpt2
+
+        loss = loss0 + loss1
 
         return loss.mean()
-
+    
+    # weak classification in iteration.
     def create_classifer(self, index=0):
-        return RandomForestClassifier(n_estimators=20)
+        # return DecisionTreeClassifier()
+        return RandomForestClassifier(n_estimators=50, max_depth=20)
 
     def resample(self, weights):
         t = np.cumsum(weights)
@@ -71,8 +92,9 @@ class FocalBoost:
             # training and calculate the rate of error
             classifications = weak_classifier.predict(x)
 
-            error = self.focal(num_rows, ncls, classifications, y) * np.array(weights)
-            alpha = 0.5 * np.sum(error)
+            pre = weak_classifier.predict_proba(x)
+            error = self.focal(num_rows, ncls, pre, y) * np.array(weights)
+            alpha = np.sum(error)
 
             alphas.append(alpha)
             classifiers.append(weak_classifier)
@@ -111,17 +133,23 @@ class FocalBoost:
                     result_map[str(result_list[j][i])] = 0
                 result_map[str(result_list[j][i])] = result_map[str(result_list[j][i])] + weight_list[j]
 
-            cur_max_value = -100000
+            cur_max_value = -1000
             max_key = ''
             for key in result_map:
+
                 if result_map[key] > cur_max_value:
+
                     cur_max_value = result_map[key]
                     max_key = key
 
             res.append(float(max_key))
         return np.asarray(res)
 
-    def fit(self, x_train, y_train, n_rounds=20):
+    # imcls is an array which contains the minority classes.
+    def fit(self, x_train, y_train, imcls=[], ismulti=1, n_rounds=20):
+        # ncls = len(np.unique(y_train))
+        self.imcls = np.array(imcls)
+        self.ismulti = ismulti
         self.num_rounds = n_rounds
         self.train(x_train, y_train.ravel())
 

@@ -1,7 +1,16 @@
-# @Reference
-# @Time : ${DATE} ${TIME}
-# @File : DOVO.py
-# @Description : a classifier for imbalance data based on GPU
+# Reference :
+#
+# Name : DOVO
+#
+# Purpose : DOVO is an classification algorithm for multi-imbalanced data.
+# 
+# This file is a part of GPU-imLearn software, A software for imbalance data classification based on GPU.
+# 
+# GPU-imLearn software is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of \n
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with this program.
+# If not, see <http://www.gnu.org/licenses/>.
 
 import numpy as np
 from scipy.stats import mode
@@ -101,12 +110,6 @@ class DOVO(object):
             label_LR = clf_lr.predict(x_te[i])
             acc[i].append(fac.get_acc(y_te[i], label_LR)[0])
 
-            # # LR 02
-            # clf_lr = LR_GPU()
-            # clf_lr.fit(x_tr[i], y_tr[i])
-            # label_LR = clf_lr.predict(x_te[i])
-            # acc[i].append(fac.get_acc(y_te[i], label_LR)[0])
-
             # XgBoost 03
             print('test03')
             clf_xgb = DecisionTreeClassifier()
@@ -165,11 +168,6 @@ class DOVO(object):
                 clf_lr.fit(traindata, trainlabel.ravel())
                 label_LR = clf_lr.predict(x_te)
                 allpre[:, i] = label_LR
-                # # LR
-                # clf_lr = LR_GPU()
-                # clf_lr.fit(traindata, trainlabel)
-                # label_LR = clf_lr.predict(x_te)
-                # allpre[:, i] = label_LR
             elif cf[i] == 3:
                 # CART
                 print('CART predict')
@@ -192,6 +190,6 @@ class DOVO(object):
             for j in range(len(x_te)):
                 allpre[j, i] = label[0] if allpre[j, i] == 0 else label[1]
 
-        print('predict end for')
+        # print('predict end for')
         pre = mode(allpre, axis=1)[0]
         return pre

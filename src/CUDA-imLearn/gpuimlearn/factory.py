@@ -1,6 +1,16 @@
-# @Reference
-# @Time : ${DATE} ${TIME}
-# @File : factory.py
+# Reference :
+#
+# Name : factory
+#
+# Purpose : factory is tool function.
+# 
+# This file is a part of GPU-imLearn software, A software for imbalance data classification based on GPU.
+# 
+# GPU-imLearn software is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of \n
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with this program.
+# If not, see <http://www.gnu.org/licenses/>.
 
 import numpy as np
 from sklearn.model_selection import KFold
