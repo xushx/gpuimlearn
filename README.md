@@ -13,11 +13,11 @@ This software is free for academic use only. <br>
 
 ## Software Contents
 There are 3 main parts in this work, you can see them in the codes folder. <br>
-* cpu <br>
+* CPU-imLearn <br>
 6 multi-class imbalanced classification algorithms based on CPU
-* gpuimlearn -recommend- <br>
+* CUDA-imLearn -recommend- <br>
 6 multi-class imbalanced classification algorithms based on GPU, base classifications are implemented by CUDA.
-* pytorch <br>
+* PyTorch-imLearn <br>
 6 multi-class imbalanced classification algorithms based on GPU, base classifications are implemented by Pytorch.
 
 the 6 multi-class imbalanced classification algorithms are :
@@ -36,16 +36,35 @@ List only the lowest. <br>
 * GCC/G++ : 6.5/6.5 
 
 ## Installation
+* CUDA-imLearn Install
 before this, please install thundergbm and thundersvm. <br>
 for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thundergbm), 
                       and [ThunderSVM](https://github.com/Xtra-Computing/thundersvm). <br>
 ```
 >>> git clone https://github.com/inbliz/gpuimlearn.git
->>> cd gpuimlearn/CUDA-imLearn/gpuimlearn
+>>> cd gpuimlearn//src/CUDA-imLearn
+>>> python3 setup.py install
+```
+* CPU-imLearn Install
+before this, please install thundergbm and thundersvm. <br>
+for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thundergbm), 
+                      and [ThunderSVM](https://github.com/Xtra-Computing/thundersvm). <br>
+```
+>>> git clone https://github.com/inbliz/gpuimlearn.git
+>>> cd gpuimlearn/src/CPU-imLearn
+>>> python3 setup.py install
+```
+* PyTorch-imLearn Insatll
+before this, please install thundergbm and thundersvm. <br>
+for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thundergbm), 
+                      and [ThunderSVM](https://github.com/Xtra-Computing/thundersvm). <br>
+```
+>>> git clone https://github.com/inbliz/gpuimlearn.git
+>>> cd gpuimlearn/src/PyTorch-imLearn
 >>> python3 setup.py install
 ```
 
-## Usage
+## Usage for CUDA-imLearn
 
 They are easy to use, and you can run them quickly. <br>
 also, there is a sample in the codes folder, you can run it with the data in data folder. If this, test_sample.py and data folder shoule be in the same package.<br>
@@ -72,7 +91,7 @@ array([1, 2, 3])
 2. FocalBoost Usage <br>
 FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 an array y of class labels (strings or integers), of shape (n_samples), <br>
-and it support an array imcls of the minority classes, of shape(specified by user):
+especially, FocalBoost supports an array imcls of the minority classes, of shape(specified by user):
 ```
 # FocalBoost
 >>> from gpuimlearn import FocalBoost
@@ -165,3 +184,66 @@ After being fitted, the model can then be used to predict new values:
 array([1, 2, 3])
 ```
 
+## Usage for PyTorch-imLearn & CPU-imLearn
+
+After installation, you can use PyTorch-imLearn and CPU-imLearn like CUDA-imLearn. <br>
+
+Here is some samples. <br>
+
+1. DECOC Usage <br>
+DECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+and an array y of class labels (strings or integers), of shape (n_samples):
+```
+# DECOC
+>>> from gpuimlearn import DECOC
+>>> X_train = [[1, 0.5], [2, 1], [1, 1], [2, 2], [1, 2.5], [2, 4.5]]
+>>> y_train = [1, 1, 2, 2, 3, 3]
+>>> clf = DECOC.DECOC()
+>>> clf.fit(X_train, y_train)
+DECOC()
+```
+After being fitted, the model can then be used to predict new values:
+```
+>>> X_test = [[1.5, 0.5], [1.5, 1.5], [1.5, 4.5]]
+>>> clf.predict(X_test)
+array([1, 2, 3])
+```
+  
+2. FocalBoost Usage <br>
+FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+an array y of class labels (strings or integers), of shape (n_samples), <br>
+especially, FocalBoost supports an array imcls of the minority classes, of shape(specified by user):
+```
+# FocalBoost
+>>> from gpuimlearn import FocalBoost
+>>> X_train = [[1, 0.5], [2, 1], [1, 1], [2, 2], [1, 2.5], [2, 4.5]]
+>>> y_train = [1, 1, 2, 2, 3, 3]
+>>> clf = FocalBoost.FocalBoost()
+>>> clf.fit(X_train, y_train)
+FocalBoost()
+```
+After being fitted, the model can then be used to predict new values:
+```
+>>> X_test = [[1.5, 0.5], [1.5, 1.5], [1.5, 4.5]]
+>>> clf.predict(X_test)
+array([1, 2, 3])
+```
+  
+3. DOVO Usage <br>
+DOVO take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+and an array y of class labels (strings or integers), of shape (n_samples):
+```
+# DOVO
+>>> from gpuimlearn import DOVO
+>>> X_train = [[1, 0.5], [2, 1], [1, 1], [2, 2], [1, 2.5], [2, 4.5]]
+>>> y_train = [1, 1, 2, 2, 3, 3]
+>>> clf = DOVO.DOVO()
+>>> clf.fit(X_train, y_train)
+DOVO()
+```
+After being fitted, the model can then be used to predict new values:
+```
+>>> X_test = [[1.5, 0.5], [1.5, 1.5], [1.5, 4.5]]
+>>> clf.predict(X_test)
+array([1, 2, 3])
+```
