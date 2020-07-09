@@ -50,26 +50,7 @@ for more information, see [ThunderGBM](https://github.com/Xtra-Computing/thunder
 They are easy to use, and you can run them quickly. <br>
 also, there is a sample in the codes folder, you can run it with the data in data folder. If this, test_sample.py and data folder shoule be in the same package.<br>
   
-1. FocalBoost Usage <br>
-FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
-and an array y of class labels (strings or integers), of shape (n_samples):
-```
-# FocalBoost
->>> from gpuimlearn import FocalBoost
->>> X_train = [[1, 0.5], [2, 1], [1, 1], [2, 2], [1, 2.5], [2, 4.5]]
->>> y_train = [1, 1, 2, 2, 3, 3]
->>> clf = FocalBoost.FocalBoost()
->>> clf.fit(X_train, y_train)
-FocalBoost()
-```
-After being fitted, the model can then be used to predict new values:
-```
->>> X_test = [[1.5, 0.5], [1.5, 1.5], [1.5, 4.5]]
->>> clf.predict(X_test)
-array([1, 2, 3])
-```
-  
-2. DECOC Usage <br>
+1. DECOC Usage <br>
 DECOC take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
 and an array y of class labels (strings or integers), of shape (n_samples):
 ```
@@ -80,6 +61,26 @@ and an array y of class labels (strings or integers), of shape (n_samples):
 >>> clf = DECOC.DECOC()
 >>> clf.fit(X_train, y_train)
 DECOC()
+```
+After being fitted, the model can then be used to predict new values:
+```
+>>> X_test = [[1.5, 0.5], [1.5, 1.5], [1.5, 4.5]]
+>>> clf.predict(X_test)
+array([1, 2, 3])
+```
+  
+2. FocalBoost Usage <br>
+FocalBoost take as input two arrays: an array X of shape (n_samples, n_features) holding the training samples, <br>
+an array y of class labels (strings or integers), of shape (n_samples), <br>
+and it support an array imcls of the minority classes, of shape(specified by user):
+```
+# FocalBoost
+>>> from gpuimlearn import FocalBoost
+>>> X_train = [[1, 0.5], [2, 1], [1, 1], [2, 2], [1, 2.5], [2, 4.5]]
+>>> y_train = [1, 1, 2, 2, 3, 3]
+>>> clf = FocalBoost.FocalBoost()
+>>> clf.fit(X_train, y_train)
+FocalBoost()
 ```
 After being fitted, the model can then be used to predict new values:
 ```
